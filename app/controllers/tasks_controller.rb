@@ -9,11 +9,7 @@ class TasksController < ApplicationController
       @archived = nil
       @query = params['q']
 
-      @tasks = Task.where(
-        Task.arel_table[:title].matches(@query).or(
-          Task.arel_table[:description].matches(@query)
-        )
-      )
+      @tasks = Task.search(@query)
     else
       @tasks = Task.all
 
