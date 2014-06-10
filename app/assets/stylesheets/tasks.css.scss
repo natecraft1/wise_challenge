@@ -29,4 +29,7 @@ a {
       background-color: inherit !important;
     }
   }
+  td:last-child {
+    vertical-align: bottom;
+  }
 } 
