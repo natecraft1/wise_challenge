@@ -1,14 +1,19 @@
 // You can use CoffeScript in tasks.js.coffee if you'd rather.
-function completeTask(taskID, status, e, node) {
+function updateTask(e, task, attr, node) {
+	var updateObj = {};
+	updateObj[attr] = !task[attr];
 	$.ajax({
-		url: "tasks/" + taskID,
+		url: "tasks/" + task.id + ".json",
 		type: "PUT",
 		contentType: "application/json",
 		dataType: "json",
-		data: JSON.stringify({"complete": !status}),
+		data: JSON.stringify(updateObj),
 		success: function() {
-			var row = $(node).closest("tr");
-			row.toggleClass("completed");
+			if (attr == "complete") {
+				var row = $(node).closest("tr");
+				row.toggleClass("completed");
+			}
 		}
 	});
+	// e.preventDefault();
 };
