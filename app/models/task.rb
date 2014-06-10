@@ -11,4 +11,5 @@ class Task < ActiveRecord::Base
       update_attribute(attribute, true)
     end
   end
+
 end
