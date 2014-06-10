@@ -26,3 +26,11 @@ a {
     border-bottom: 1px solid #DDD;
   }
 }
+.table {
+  .completed {
+    background-color: #A8FFBE !important;
+    td {
+      background-color: inherit !important;
+    }
+  }
+} 
